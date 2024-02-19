@@ -352,23 +352,14 @@ source $HOME/.kube/kubecom.sh
 
 
 ### Links:
-- [Kubernetes Install](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
+
+- [Kubernetes Install](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
+- [Kubernetes Create cluster](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
 - [Kubernetes cgroup driver](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/configure-cgroup-driver/)
 - [Kubernetes Container Runtimes](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#containerd-systemd/)
 - [Kubernetes CRI Setup](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#containerd)
 
 
 
-
 Congratulations! You have successfully set up a Kubernetes cluster using kubeadm. You can now deploy and manage containerized applications on your cluster.
-
-
-
-
-
-
-
-
-
-
 
