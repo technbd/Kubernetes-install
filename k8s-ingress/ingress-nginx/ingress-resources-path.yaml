@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-path-based
+  #namespace:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /wear
+        pathType: Prefix
+        backend:
+          service:
+           name: webapp-wear-svc  #service1
+           port: 
+            number: 8080
+            
+      - path: /watch
+        pathType: Prefix
+        backend:
+          service:
+           name: webapp-video-svc  #service2
+           port:
+            number: 8080
+

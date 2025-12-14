@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: webapp-video
+  name: webapp-video-svc
+spec:
+  ports:
+  - port: 8080         #container service port/expose port
+    protocol: TCP
+    targetPort: 8080   #container port 8080
+    #targetPort: 80    #container port 80 (if port: 80)
+    nodePort: 30081    #manually add/assign nodePort
+  selector:
+    app: webapp-video
+  type: NodePort
+  #type: LoadBalancer
+
