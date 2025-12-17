@@ -1,0 +1,49 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-host-based
+  #namespace: default
+  annotations:
+    konghq.com/plugins: kong-rate-limit    # Plugin names referenced in KongPlugin resources
+    #konghq.com/strip-path: "false"
+    #konghq.com/methods: "GET, POST"
+    #kubernetes.io/ingress.class: kong
+
+spec:
+  ingressClassName: kong
+  rules:
+  - host: "wear.idea.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: webapp-wear-svc  #service1
+            port:
+              number: 8080         #Port exposed by your Service
+
+  - host: "watch.idea.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: webapp-video-svc  #service2
+            port:
+              number: 8080
+---
+## kong-rate-limit:
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: kong-rate-limit     # Must match name in Ingress annotation
+  #namespace: default
+  annotations:
+    kubernetes.io/ingress.class: kong
+plugin: rate-limiting
+config:
+  minute: 100     # Number of requests allowed per minute
+  policy: local
+  
