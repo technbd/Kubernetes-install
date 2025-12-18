@@ -1,0 +1,21 @@
+apiVersion: traefik.io/v1alpha1
+#apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: video-ingressroute     # your-ingressroute-name
+  #namespace:
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`watch.idea.com`)       # change to your domain
+      kind: Rule
+      services:
+        - name: webapp-video-svc          # change your service name
+          port: 8080
+    - match: Host(`wear.idea.com`)       # change to your domain
+      kind: Rule
+      services:
+        - name: webapp-wear-svc          # change your service name
+          port: 8080
+          
