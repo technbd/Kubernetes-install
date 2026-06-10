@@ -58,6 +58,21 @@ Worker Node
 ```
 
 
+### Kubeadm vs K0s: 
+
+Unlike `kubeadm` where the master runs a `kubelet` and taints itself, `k0s` controller is **purely a control plane process** — no kubelet, no node registration.
+
+
+| Behavior | kubeadm | k0s |
+| -------- | ------- | --- |
+| Master shows in get nodes |✅ yes |❌ no (by design) |
+| Master runs kubelet| ✅ yes | ❌ no | 
+| Master runs workloads |⚠️ tainted | ❌ never (default) | 
+| Control plane isolation | partial | strict |
+
+
+
+
 ### Prerequisites:
 - Host operating system: 
     - Amazon Linux 2023
