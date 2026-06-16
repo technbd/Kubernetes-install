@@ -199,7 +199,7 @@ chmod 600 ~/.kube/config
 export KUBECONFIG=~/.kube/config
 ```
 
-export KUBECONFIG=~/.kube/config
+
 
 
 ### Uninstall k0s:
