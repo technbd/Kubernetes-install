@@ -196,9 +196,10 @@ k0s kubeconfig admin > ~/.kube/config
 
 scp -r .kube/config root@<local_pc_ip>:~/.kube/config
 chmod 600 ~/.kube/config
+export KUBECONFIG=~/.kube/config
 ```
 
-
+export KUBECONFIG=~/.kube/config
 
 
 ### Uninstall k0s:
