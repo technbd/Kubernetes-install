@@ -133,6 +133,12 @@ k0s install controller --single
 ```
 
 
+_`k0s` as a single-node controller + worker also runs pods:_
+```
+k0s install controller --enable-worker --no-taints
+```
+
+
 _Start k0s service:_
 ```
 k0s start
@@ -195,6 +201,7 @@ _Export the kubeconfig:_
 k0s kubeconfig admin > ~/.kube/config
 
 scp -r .kube/config root@<local_pc_ip>:~/.kube/config
+
 chmod 600 ~/.kube/config
 export KUBECONFIG=~/.kube/config
 ```
