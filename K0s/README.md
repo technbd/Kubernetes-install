@@ -139,6 +139,17 @@ k0s install controller --enable-worker --no-taints
 ```
 
 
+_Or, single-node controller + worker also runs pods:_
+```
+mkdir -p /etc/k0s
+
+k0s config create > /etc/k0s/k0s.yaml  
+
+k0s install controller --enable-worker -c /etc/k0s/k0s.yaml --no-taints
+```
+
+
+
 _Start k0s service:_
 ```
 k0s start
